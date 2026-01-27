@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'config/theme.dart';
 import 'screens/lobby_screen.dart';
+import 'screens/slot_game_screen.dart';
+import 'screens/lucky_wheel_screen.dart';
+import 'screens/login_screen.dart';
 
 void main() {
   runApp(const MasterCasinoApp());
@@ -15,7 +18,7 @@ class MasterCasinoApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Imperium Casino',
       theme: CasinoTheme.darkTheme,
-      home: const MainLayout(),
+      home: LoginScreen(),
     );
   }
 }
@@ -28,6 +31,19 @@ class MainLayout extends StatefulWidget {
 }
 
 class _MainLayoutState extends State<MainLayout> {
+  // Variabel untuk melacak halaman yang aktif
+  int _selectedIndex = 0;
+
+  // Daftar halaman yang dihubungkan ke Sidebar
+  final List<Widget> _pages = [
+    const LobbyScreen(), // Index 0
+    const Center(
+      child: Text("Favourites", style: TextStyle(color: Colors.white)),
+    ), // Index 1
+    const SlotGameScreen(gameTitle: "Featured Slot"), // Index 2
+    const LuckyWheelScreen(), // Index 3
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,9 +61,21 @@ class _MainLayoutState extends State<MainLayout> {
                   padding: const EdgeInsets.only(left: 24),
                   child: Row(
                     children: const [
-                      Icon(Icons.diamond, color: CasinoTheme.accentGreen, size: 28),
+                      Icon(
+                        Icons.diamond,
+                        color: CasinoTheme.accentGreen,
+                        size: 28,
+                      ),
                       SizedBox(width: 10),
-                      Text("IMPERIUM", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900, letterSpacing: 2, color: Colors.white)),
+                      Text(
+                        "IMPERIUM",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w900,
+                          letterSpacing: 2,
+                          color: Colors.white,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -55,17 +83,17 @@ class _MainLayoutState extends State<MainLayout> {
                   child: ListView(
                     padding: const EdgeInsets.symmetric(vertical: 20),
                     children: [
-                      _sidebarItem(Icons.home_filled, "Lobby", true),
-                      _sidebarItem(Icons.favorite, "Favourites", false),
-                      _sidebarItem(Icons.casino, "Slots", false),
-                      _sidebarItem(Icons.pie_chart, "Wheel", false),
+                      _sidebarItem(Icons.home_filled, "Lobby", 0),
+                      _sidebarItem(Icons.favorite, "Favourites", 1),
+                      _sidebarItem(Icons.casino, "Slots", 2),
+                      _sidebarItem(Icons.pie_chart, "Wheel", 3),
                     ],
                   ),
                 ),
               ],
             ),
           ),
-          
+
           // B. KONTEN UTAMA
           Expanded(
             child: Column(
@@ -81,29 +109,54 @@ class _MainLayoutState extends State<MainLayout> {
                       Container(
                         width: 300,
                         height: 40,
-                        decoration: BoxDecoration(color: CasinoTheme.cardColor, borderRadius: BorderRadius.circular(20)),
+                        decoration: BoxDecoration(
+                          color: CasinoTheme.cardColor,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
                         alignment: Alignment.centerLeft,
                         padding: const EdgeInsets.symmetric(horizontal: 15),
-                        child: const Icon(Icons.search, color: Colors.grey, size: 18),
+                        child: const Icon(
+                          Icons.search,
+                          color: Colors.grey,
+                          size: 18,
+                        ),
                       ),
                       Row(
                         children: [
-                          const Text("\$ 5,240.50", style: TextStyle(color: CasinoTheme.accentGreen, fontWeight: FontWeight.bold)),
+                          const Text(
+                            "Rp 5.240.500",
+                            style: TextStyle(
+                              color: CasinoTheme.accentGreen,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                           const SizedBox(width: 20),
                           Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                            decoration: BoxDecoration(color: CasinoTheme.accentGreen, borderRadius: BorderRadius.circular(4)),
-                            child: const Text("Wallet", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 16,
+                              vertical: 8,
+                            ),
+                            decoration: BoxDecoration(
+                              color: CasinoTheme.accentGreen,
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                            child: const Text(
+                              "Wallet",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           ),
                         ],
-                      )
+                      ),
                     ],
                   ),
                 ),
-                
-                // Panggil Halaman Lobby
-                const Expanded(
-                  child: LobbyScreen(),
+
+                // Menampilkan halaman menggunakan IndexedStack agar state terjaga
+                Expanded(
+                  child: IndexedStack(index: _selectedIndex, children: _pages),
                 ),
               ],
             ),
@@ -113,7 +166,10 @@ class _MainLayoutState extends State<MainLayout> {
     );
   }
 
-  Widget _sidebarItem(IconData icon, String label, bool isActive) {
+  // Widget helper untuk Sidebar Item
+  Widget _sidebarItem(IconData icon, String label, int index) {
+    bool isActive = _selectedIndex == index;
+
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
       decoration: BoxDecoration(
@@ -121,9 +177,23 @@ class _MainLayoutState extends State<MainLayout> {
         borderRadius: BorderRadius.circular(8),
       ),
       child: ListTile(
-        leading: Icon(icon, color: isActive ? CasinoTheme.accentGreen : Colors.grey, size: 20),
-        title: Text(label, style: TextStyle(color: isActive ? Colors.white : Colors.grey, fontSize: 14)),
-        onTap: () {},
+        leading: Icon(
+          icon,
+          color: isActive ? CasinoTheme.accentGreen : Colors.grey,
+          size: 20,
+        ),
+        title: Text(
+          label,
+          style: TextStyle(
+            color: isActive ? Colors.white : Colors.grey,
+            fontSize: 14,
+          ),
+        ),
+        onTap: () {
+          setState(() {
+            _selectedIndex = index;
+          });
+        },
       ),
     );
   }
