@@ -1,4 +1,4 @@
-<img width="1920" height="1080" alt="lobby" src="https://github.com/user-attachments/assets/f21f25a7-fb14-42f9-ac84-ad9d3ea53f3d" /># 🎰 Slot Game Application - UAS Project
+🎰 Slot Game Application - UAS Project
 
 ![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
 ![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)
