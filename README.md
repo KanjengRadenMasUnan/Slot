@@ -1,217 +1,88 @@
+# 🎰 Slot Game Application - UAS Project
 
-```
-game
-├─ .metadata
-├─ analysis_options.yaml
-├─ android
-│  ├─ app
-│  │  ├─ build.gradle.kts
-│  │  └─ src
-│  │     ├─ debug
-│  │     │  └─ AndroidManifest.xml
-│  │     ├─ main
-│  │     │  ├─ AndroidManifest.xml
-│  │     │  ├─ java
-│  │     │  │  └─ io
-│  │     │  │     └─ flutter
-│  │     │  │        └─ plugins
-│  │     │  │           └─ GeneratedPluginRegistrant.java
-│  │     │  ├─ kotlin
-│  │     │  │  └─ com
-│  │     │  │     └─ example
-│  │     │  │        └─ slot
-│  │     │  │           └─ MainActivity.kt
-│  │     │  └─ res
-│  │     │     ├─ drawable
-│  │     │     │  └─ launch_background.xml
-│  │     │     ├─ drawable-v21
-│  │     │     │  └─ launch_background.xml
-│  │     │     ├─ mipmap-hdpi
-│  │     │     │  └─ ic_launcher.png
-│  │     │     ├─ mipmap-mdpi
-│  │     │     │  └─ ic_launcher.png
-│  │     │     ├─ mipmap-xhdpi
-│  │     │     │  └─ ic_launcher.png
-│  │     │     ├─ mipmap-xxhdpi
-│  │     │     │  └─ ic_launcher.png
-│  │     │     ├─ mipmap-xxxhdpi
-│  │     │     │  └─ ic_launcher.png
-│  │     │     ├─ values
-│  │     │     │  └─ styles.xml
-│  │     │     └─ values-night
-│  │     │        └─ styles.xml
-│  │     └─ profile
-│  │        └─ AndroidManifest.xml
-│  ├─ build.gradle.kts
-│  ├─ gradle
-│  │  └─ wrapper
-│  │     └─ gradle-wrapper.properties
-│  ├─ gradle.properties
-│  ├─ local.properties
-│  └─ settings.gradle.kts
-├─ ios
-│  ├─ Flutter
-│  │  ├─ AppFrameworkInfo.plist
-│  │  ├─ Debug.xcconfig
-│  │  ├─ ephemeral
-│  │  │  ├─ flutter_lldbinit
-│  │  │  └─ flutter_lldb_helper.py
-│  │  ├─ flutter_export_environment.sh
-│  │  ├─ Generated.xcconfig
-│  │  └─ Release.xcconfig
-│  ├─ Runner
-│  │  ├─ AppDelegate.swift
-│  │  ├─ Assets.xcassets
-│  │  │  ├─ AppIcon.appiconset
-│  │  │  │  ├─ Contents.json
-│  │  │  │  ├─ Icon-App-1024x1024@1x.png
-│  │  │  │  ├─ Icon-App-20x20@1x.png
-│  │  │  │  ├─ Icon-App-20x20@2x.png
-│  │  │  │  ├─ Icon-App-20x20@3x.png
-│  │  │  │  ├─ Icon-App-29x29@1x.png
-│  │  │  │  ├─ Icon-App-29x29@2x.png
-│  │  │  │  ├─ Icon-App-29x29@3x.png
-│  │  │  │  ├─ Icon-App-40x40@1x.png
-│  │  │  │  ├─ Icon-App-40x40@2x.png
-│  │  │  │  ├─ Icon-App-40x40@3x.png
-│  │  │  │  ├─ Icon-App-60x60@2x.png
-│  │  │  │  ├─ Icon-App-60x60@3x.png
-│  │  │  │  ├─ Icon-App-76x76@1x.png
-│  │  │  │  ├─ Icon-App-76x76@2x.png
-│  │  │  │  └─ Icon-App-83.5x83.5@2x.png
-│  │  │  └─ LaunchImage.imageset
-│  │  │     ├─ Contents.json
-│  │  │     ├─ LaunchImage.png
-│  │  │     ├─ LaunchImage@2x.png
-│  │  │     ├─ LaunchImage@3x.png
-│  │  │     └─ README.md
-│  │  ├─ Base.lproj
-│  │  │  ├─ LaunchScreen.storyboard
-│  │  │  └─ Main.storyboard
-│  │  ├─ GeneratedPluginRegistrant.h
-│  │  ├─ GeneratedPluginRegistrant.m
-│  │  ├─ Info.plist
-│  │  ├─ Runner-Bridging-Header.h
-│  │  └─ SceneDelegate.swift
-│  ├─ Runner.xcodeproj
-│  │  ├─ project.pbxproj
-│  │  ├─ project.xcworkspace
-│  │  │  ├─ contents.xcworkspacedata
-│  │  │  └─ xcshareddata
-│  │  │     ├─ IDEWorkspaceChecks.plist
-│  │  │     └─ WorkspaceSettings.xcsettings
-│  │  └─ xcshareddata
-│  │     └─ xcschemes
-│  │        └─ Runner.xcscheme
-│  ├─ Runner.xcworkspace
-│  │  ├─ contents.xcworkspacedata
-│  │  └─ xcshareddata
-│  │     ├─ IDEWorkspaceChecks.plist
-│  │     └─ WorkspaceSettings.xcsettings
-│  └─ RunnerTests
-│     └─ RunnerTests.swift
-├─ lib
-│  ├─ config
-│  │  └─ theme.dart
-│  ├─ main.dart
-│  ├─ screens
-│  │  ├─ lobby_screen.dart
-│  │  ├─ lucky_wheel_screen.dart
-│  │  └─ slot_game_screen.dart
-│  └─ widgets
-│     ├─ game_card.dart
-│     └─ promo_carousel.dart
-├─ linux
-│  ├─ CMakeLists.txt
-│  ├─ flutter
-│  │  ├─ CMakeLists.txt
-│  │  ├─ generated_plugins.cmake
-│  │  ├─ generated_plugin_registrant.cc
-│  │  └─ generated_plugin_registrant.h
-│  └─ runner
-│     ├─ CMakeLists.txt
-│     ├─ main.cc
-│     ├─ my_application.cc
-│     └─ my_application.h
-├─ macos
-│  ├─ Flutter
-│  │  ├─ ephemeral
-│  │  │  ├─ Flutter-Generated.xcconfig
-│  │  │  └─ flutter_export_environment.sh
-│  │  ├─ Flutter-Debug.xcconfig
-│  │  ├─ Flutter-Release.xcconfig
-│  │  └─ GeneratedPluginRegistrant.swift
-│  ├─ Runner
-│  │  ├─ AppDelegate.swift
-│  │  ├─ Assets.xcassets
-│  │  │  └─ AppIcon.appiconset
-│  │  │     ├─ app_icon_1024.png
-│  │  │     ├─ app_icon_128.png
-│  │  │     ├─ app_icon_16.png
-│  │  │     ├─ app_icon_256.png
-│  │  │     ├─ app_icon_32.png
-│  │  │     ├─ app_icon_512.png
-│  │  │     ├─ app_icon_64.png
-│  │  │     └─ Contents.json
-│  │  ├─ Base.lproj
-│  │  │  └─ MainMenu.xib
-│  │  ├─ Configs
-│  │  │  ├─ AppInfo.xcconfig
-│  │  │  ├─ Debug.xcconfig
-│  │  │  ├─ Release.xcconfig
-│  │  │  └─ Warnings.xcconfig
-│  │  ├─ DebugProfile.entitlements
-│  │  ├─ Info.plist
-│  │  ├─ MainFlutterWindow.swift
-│  │  └─ Release.entitlements
-│  ├─ Runner.xcodeproj
-│  │  ├─ project.pbxproj
-│  │  ├─ project.xcworkspace
-│  │  │  └─ xcshareddata
-│  │  │     └─ IDEWorkspaceChecks.plist
-│  │  └─ xcshareddata
-│  │     └─ xcschemes
-│  │        └─ Runner.xcscheme
-│  ├─ Runner.xcworkspace
-│  │  ├─ contents.xcworkspacedata
-│  │  └─ xcshareddata
-│  │     └─ IDEWorkspaceChecks.plist
-│  └─ RunnerTests
-│     └─ RunnerTests.swift
-├─ pubspec.lock
-├─ pubspec.yaml
-├─ README.md
-├─ test
-│  └─ widget_test.dart
-├─ web
-│  ├─ favicon.png
-│  ├─ icons
-│  │  ├─ Icon-192.png
-│  │  ├─ Icon-512.png
-│  │  ├─ Icon-maskable-192.png
-│  │  └─ Icon-maskable-512.png
-│  ├─ index.html
-│  └─ manifest.json
-└─ windows
-   ├─ CMakeLists.txt
-   ├─ flutter
-   │  ├─ CMakeLists.txt
-   │  ├─ generated_plugins.cmake
-   │  ├─ generated_plugin_registrant.cc
-   │  └─ generated_plugin_registrant.h
-   └─ runner
-      ├─ CMakeLists.txt
-      ├─ flutter_window.cpp
-      ├─ flutter_window.h
-      ├─ main.cpp
-      ├─ resource.h
-      ├─ resources
-      │  └─ app_icon.ico
-      ├─ runner.exe.manifest
-      ├─ Runner.rc
-      ├─ utils.cpp
-      ├─ utils.h
-      ├─ win32_window.cpp
-      └─ win32_window.h
+![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
+![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)
+![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
+![Laragon](https://img.shields.io/badge/Laragon-Tool-blue?style=for-the-badge)
 
-```
+> **Pengajuan Project UAS (Ujian Akhir Semester)**
+>
+> Repository ini berisi *source code* aplikasi permainan slot berbasis web/mobile yang terintegrasi dengan database MySQL.
+
+---
+
+## 👥 Profil Kelompok 2
+
+Tim pengembang yang bertugas dalam proyek ini:
+
+| No | Nama Anggota | Role / Tanggung Jawab |
+|:--:|:---|:---|
+| 1 | **Unan Nurwenda** | 👑 Project Manager |
+| 2 | **Pizar Almaulidina** | 🎨 Frontend Developer |
+| 3 | **Muhammad Rifan** | ⚙️ Backend Developer |
+| 4 | **Ahmad Hadi Fauzan** | 🗄️ Database Developer |
+| 5 | **Izzul Ahmad Fatoni** | 🧪 Tester |
+| 6 | **Fikri Firdaus** | 📝 Dokumentasi |
+
+---
+
+## 💻 Tech Stack
+
+* **Framework**: Flutter
+* **Language**: Dart
+* **Database**: MySQL
+* **Server Tool**: Laragon
+* **IDE**: Visual Studio Code
+
+---
+
+## ⚙️ Persiapan Database (Database Setup)
+
+Sebelum menjalankan aplikasi, database harus disiapkan terlebih dahulu menggunakan Laragon.
+
+1.  Buka **Laragon** dan klik tombol **Start All**.
+2.  Buka Database Manager (HeidiSQL / phpMyAdmin).
+3.  Buat database baru dengan nama: `slot_db`
+4.  Buka tab **Query** dan jalankan perintah SQL berikut untuk membuat tabel:
+
+```sql
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL, -- Password disimpan (disarankan hash MD5/Bcrypt)
+    balance DECIMAL(15,2) DEFAULT 0
+);
+
+
+🚀 Cara Menjalankan (How to Run)
+Ikuti langkah-langkah berikut untuk menjalankan aplikasi di browser:
+
+Buka Project: Buka folder project ini menggunakan VS Code.
+
+Terminal: Buka terminal di VS Code (Ctrl + `).
+
+Run: Ketik perintah berikut dan tekan Enter:
+
+Bash
+flutter run
+Pilih Device: Jika diminta memilih device, pilih angka yang sesuai dengan Chrome atau Edge (Web Browser).
+
+Selesai: Tunggu proses compiling selesai, browser akan otomatis terbuka menampilkan aplikasi.
+
+🎮 Panduan Penggunaan
+Registrasi: Saat aplikasi terbuka, lakukan pendaftaran akun baru terlebih dahulu.
+
+Login: Masuk menggunakan username dan password yang baru saja dibuat.
+
+Main Game:
+
+Tekan tombol putar (spin) untuk bermain.
+
+Saldo (balance) akan terupdate otomatis ke database slot_db.
+
+📸 Dokumentasi
+Dokumentasi proses pengembangan dan hasil testing aplikasi.
+
+(Bagian ini dapat diisi dengan screenshot aplikasi yang diambil oleh tim dokumentasi)
+
+<p align="center"> Created with ❤️ by <b>Kelompok 2</b> </p>
