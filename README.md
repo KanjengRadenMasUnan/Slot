@@ -52,9 +52,8 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL, -- Password disimpan (disarankan hash MD5/Bcrypt)
     balance DECIMAL(15,2) DEFAULT 0
 );
-
-
-🚀 Cara Menjalankan (How to Run)
+```
+## 🚀 Cara Menjalankan (How to Run)
 Ikuti langkah-langkah berikut untuk menjalankan aplikasi di browser:
 
 Buka Project: Buka folder project ini menggunakan VS Code.
@@ -69,7 +68,9 @@ Pilih Device: Jika diminta memilih device, pilih angka yang sesuai dengan Chrome
 
 Selesai: Tunggu proses compiling selesai, browser akan otomatis terbuka menampilkan aplikasi.
 
-🎮 Panduan Penggunaan
+---
+
+## 🎮 Panduan Penggunaan
 Registrasi: Saat aplikasi terbuka, lakukan pendaftaran akun baru terlebih dahulu.
 
 Login: Masuk menggunakan username dan password yang baru saja dibuat.
@@ -80,7 +81,9 @@ Tekan tombol putar (spin) untuk bermain.
 
 Saldo (balance) akan terupdate otomatis ke database slot_db.
 
-📸 Dokumentasi
+---
+
+## 📸 Dokumentasi
 Dokumentasi proses pengembangan dan hasil testing aplikasi.
 
 (Bagian ini dapat diisi dengan screenshot aplikasi yang diambil oleh tim dokumentasi)
